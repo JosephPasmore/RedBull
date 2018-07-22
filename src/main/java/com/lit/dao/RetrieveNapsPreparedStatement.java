@@ -1,6 +1,7 @@
 package com.lit.dao;
 
 import com.lit.entity.Location;
+import com.lit.entity.Picture;
 import com.lit.entity.Review;
 
 import java.sql.DriverManager;
@@ -31,7 +32,6 @@ public class RetrieveNapsPreparedStatement {
             preparedStatement = dbConnection.prepareStatement(selectSQL);
             resultSet = preparedStatement.executeQuery();
 
-
             while (resultSet.next())
             {
                 Location location = new Location.LocationBuilder()
@@ -54,9 +54,9 @@ public class RetrieveNapsPreparedStatement {
                 Review review = new Review.ReviewBuilder()
                         .withReviewId(resultSet.getInt("reviewId"))
                         .withLocation(location)
-                        .withPictureId(resultSet.getInt("pictureId"))
                         .withCommentId(resultSet.getInt("commentId"))
                         .withUserId(resultSet.getInt("userId"))
+                        .withPictureId(resultSet.getInt("pictureId"))
                         .withAvailability(resultSet.getString("availability"))
                         .withDescription(resultSet.getString("description"))
                         .withRating(resultSet.getInt("rating"))

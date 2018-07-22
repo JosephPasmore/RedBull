@@ -5,7 +5,7 @@ public class Picture {
     private final int pictureId;
     private final int reviewId;
     private final int userId;
-    private final String commentId;
+    private final int commentId;
     private final String url;
     private final String description;
 
@@ -33,7 +33,7 @@ public class Picture {
         return userId;
     }
 
-    public String getCommentId() {
+    public int getCommentId() {
         return commentId;
     }
 
@@ -51,7 +51,7 @@ public class Picture {
         private int pictureId;
         private int reviewId;
         private int userId;
-        private String commentId;
+        private int commentId;
         private String url;
         private String description;
 
@@ -74,7 +74,7 @@ public class Picture {
             return this;
         }
 
-        public Picture.PictureBuilder commentId(String commentId)
+        public Picture.PictureBuilder commentId(int commentId)
         {
             this.commentId = commentId;
             return this;
@@ -92,5 +92,8 @@ public class Picture {
             return this;
         }
 
+        public Picture build () {
+            return new Picture(this);
+        }
     }
 }
