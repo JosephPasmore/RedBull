@@ -6,6 +6,8 @@ import com.lit.dao.RetrievePicturesPreparedStatement;
 import com.lit.entity.Location;
 import com.lit.entity.Review;
 import com.lit.entity.Picture;
+import com.lit.dao.RetrieveUsersPreparedStatement;
+import com.lit.entity.User;
 import java.util.*;
 
 public class RetrieveService {
@@ -40,6 +42,11 @@ public class RetrieveService {
     public List<Location> getLocations() throws Exception
     {
         return RetrieveLocationsPreparedStatement.selectRecordsFromTable();
+    }
+
+    public List<User> getUser() throws Exception
+    {
+        return RetrieveUsersPreparedStatement.selectRecordsFromTable();
     }
 }
 

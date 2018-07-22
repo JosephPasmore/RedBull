@@ -92,8 +92,10 @@ public class Picture {
             return this;
         }
 
-        public Picture build () {
+        public Picture build()
+        {
             return new Picture(this);
         }
+
     }
 }

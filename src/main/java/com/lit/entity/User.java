@@ -48,34 +48,37 @@ public class User {
         private String password;
 
         // Multiple Constructors for each member variable
-        public User.UserBuilder userId(int userId)
+        public User.UserBuilder withUserId(int userId)
         {
             this.userId = userId;
             return this;
         }
 
-        public User.UserBuilder firstName(String firstName)
+        public User.UserBuilder withFirstName(String firstName)
         {
             this.firstName = firstName;
             return this;
         }
 
-        public User.UserBuilder lastName(String lastName)
+        public User.UserBuilder withLastName(String lastName)
         {
             this.lastName = lastName;
             return this;
         }
 
-        public User.UserBuilder email(String email)
+        public User.UserBuilder withEmail(String email)
         {
             this.email = email;
             return this;
         }
 
-        public User.UserBuilder password(String password)
+        public User.UserBuilder withPassword(String password)
         {
             this.password = password;
             return this;
+        }
+        public User build () {
+            return new User(this);
         }
     }
 }
