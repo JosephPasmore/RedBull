@@ -5,7 +5,7 @@ public class Review
     private final int reviewId;
     private final int pictureId;
     private final int commentId;
-    private final int locationId;
+    private final Location location;
     private final int userId;
     private final int rating;
     private final String availability;
@@ -17,7 +17,7 @@ public class Review
         this.reviewId = builder.reviewId;
         this.pictureId = builder.pictureId;
         this.commentId = builder.commentId;
-        this.locationId = builder.locationId;
+        this.location = builder.location;
         this.userId = builder.userId;
         this.rating = builder.rating;
         this.availability = builder.availability;
@@ -39,8 +39,8 @@ public class Review
         return commentId;
     }
 
-    public int getLocationId() {
-        return locationId;
+    public Location getLocation() {
+        return location;
     }
 
     public int getUserIdId() {
@@ -68,7 +68,7 @@ public class Review
         private int reviewId;
         private int pictureId;
         private int commentId;
-        private int locationId;
+        private Location location;
         private int userId;
         private int rating;
         private String availability;
@@ -90,8 +90,8 @@ public class Review
             return this;
         }
 
-        public ReviewBuilder withLocationId(int locationId){
-            this.locationId = locationId;
+        public ReviewBuilder withLocation(Location location){
+            this.location = location;
             return this;
         }
 

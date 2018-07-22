@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 
 import com.lit.Track;
 
-@Path("/service")
+@Path("/post")
 public class ConfessNap {
 
     @POST
