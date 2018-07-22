@@ -1,7 +1,6 @@
 package com.lit.dao;
 
 import com.lit.entity.Location;
-import com.lit.entity.Review;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -10,20 +9,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.*;
 
-public class RetrieveNapsPreparedStatement {
+public class RetrieveLocationsPreparedStatement {
 
-    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_CONNECTION = "jdbc:mysql://localhost/napCore";
-    private static final String DB_USER = "user=root";
-    private static final String DB_PASSWORD = "password";
 
-    public static List<Review> selectRecordsFromTable() throws Exception {
+    public static List<Location> selectRecordsFromTable() throws Exception {
 
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<Review> reviews = new ArrayList();
-        String selectSQL = "SELECT * FROM review, location WHERE review.reviewId = location.reviewId";
+        List<Location> locations = new ArrayList();
+        String selectSQL = "SELECT * FROM location";
 
         try
         {
@@ -50,19 +45,7 @@ public class RetrieveNapsPreparedStatement {
                         .withLatitudeCoordinates(resultSet.getString("latitudeCoords"))
                         .withLongitudeCoordinates(resultSet.getString("longitudeCoords"))
                         .build();
-
-                Review review = new Review.ReviewBuilder()
-                        .withReviewId(resultSet.getInt("reviewId"))
-                        .withLocation(location)
-                        .withPictureId(resultSet.getInt("pictureId"))
-                        .withCommentId(resultSet.getInt("commentId"))
-                        .withUserId(resultSet.getInt("userId"))
-                        .withAvailability(resultSet.getString("availability"))
-                        .withDescription(resultSet.getString("description"))
-                        .withRating(resultSet.getInt("rating"))
-                        .withUploadDateTime(resultSet.getString("uploadDateTime"))
-                        .build();
-                reviews.add(review);
+                locations.add(location);
             }
         }
         finally
@@ -81,7 +64,7 @@ public class RetrieveNapsPreparedStatement {
             }
         }
 
-        return reviews;
+        return locations;
     }
 
     private static Connection getDBConnection() throws Exception
