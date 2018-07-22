@@ -1,17 +1,17 @@
 package com.lit.entity;
 
-public class Picture {
+public class WritablePicture {
     // All are set to final to make Picture Immutable
     private final int pictureId;
     private final int reviewId;
     private final int userId;
-    private final int commentId;
+    private final String commentId;
     private final String url;
     private final String description;
 
     // Constructor is private, so that only static
-    // PictureBuilder can initiate the Picture class instance
-    private Picture(Picture.PictureBuilder builder) {
+    // WritablePictureBuilder can initiate the WritablePicture class instance
+    private WritablePicture(WritablePicture.WritablePictureBuilder builder) {
         this.pictureId = builder.pictureId;
         this.reviewId = builder.reviewId;
         this.userId = builder.userId;
@@ -33,7 +33,7 @@ public class Picture {
         return userId;
     }
 
-    public int getCommentId() {
+    public String getCommentId() {
         return commentId;
     }
 
@@ -46,54 +46,51 @@ public class Picture {
     }
 
 
-    public static class PictureBuilder
+    public static class WritablePictureBuilder
     {
         private int pictureId;
         private int reviewId;
         private int userId;
-        private int commentId;
+        private String commentId;
         private String url;
         private String description;
 
         // Multiple Constructors for each member variable
-        public Picture.PictureBuilder pictureId(int pictureId)
+        public WritablePicture.WritablePictureBuilder pictureId(int pictureId)
         {
             this.pictureId = pictureId;
             return this;
         }
 
-        public Picture.PictureBuilder reviewId(int reviewId)
+        public WritablePicture.WritablePictureBuilder reviewId(int reviewId)
         {
             this.reviewId = reviewId;
             return this;
         }
 
-        public Picture.PictureBuilder userId(int userId)
+        public WritablePicture.WritablePictureBuilder userId(int userId)
         {
             this.userId = userId;
             return this;
         }
 
-        public Picture.PictureBuilder commentId(int commentId)
+        public WritablePicture.WritablePictureBuilder commentId(String commentId)
         {
             this.commentId = commentId;
             return this;
         }
 
-        public Picture.PictureBuilder url(String url)
+        public WritablePicture.WritablePictureBuilder url(String url)
         {
             this.url = url;
             return this;
         }
 
-        public Picture.PictureBuilder description(String description)
+        public WritablePicture.WritablePictureBuilder description(String description)
         {
             this.description = description;
             return this;
         }
 
-        public Picture build () {
-            return new Picture(this);
-        }
     }
 }
