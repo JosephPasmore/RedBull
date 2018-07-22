@@ -2,7 +2,6 @@ package com.lit.entity;
 
 public class WritableReview
 {
-    // All are set to final to make writableReview Immutable
     private final int reviewId;
     private final int pictureId;
     private final int commentId;
@@ -13,22 +12,19 @@ public class WritableReview
     private final String description;
     private final String uploadDateTime;
 
-    // Constructor is private, so that only static
-    // writableReviewBuilder can initiate the writableReview class instance
     private WritableReview(WritableReviewBuilder builder)
     {
-        this.reviewId = builder.getReviewId();
-        this.pictureId = builder.getPictureId();
-        this.commentId = builder.getCommentId();
-        this.locationId = builder.getLocationId();
-        this.userId = builder.getUserId();
-        this.rating = builder.getRating();
-        this.availability = builder.getAvailability();
-        this.description = builder.getDescription();
-        this.uploadDateTime = builder.uploadDateTime();
+        this.reviewId = builder.reviewId;
+        this.pictureId = builder.pictureId;
+        this.commentId = builder.commentId;
+        this.locationId = builder.locationId;
+        this.userId = builder.userId;
+        this.rating = builder.rating;
+        this.availability = builder.availability;
+        this.description = builder.description;
+        this.uploadDateTime = builder.uploadDateTime;
     }
 
-    // getters
     public int getReviewId()
     {
         return reviewId;
@@ -74,7 +70,7 @@ public class WritableReview
         return uploadDateTime;
     }
 
-    public static class WritableReviewBuilder()
+    public static class WritableReviewBuilder
     {
         private int reviewId;
         private int pictureId;
@@ -92,36 +88,36 @@ public class WritableReview
         }
 
         // Multiple Constructors for each member variable
-        public WritableReviewBuilder withReviewId( int reviewId)
+        public WritableReviewBuilder withReviewId(int reviewId)
         {
             this.reviewId = reviewId;
             return this;
         }
 
-        public WritableReviewBuilder withPictureId( int pictureId)
+        public WritableReviewBuilder withPictureId(int pictureId)
         {
             this.pictureId = pictureId;
             return this;
         }
 
-        public WritableReviewBuilder withCommentId( int commentId){
+        public WritableReviewBuilder withCommentId(int commentId){
             this.commentId = commentId;
             return this;
         }
 
-        public WritableReviewBuilder withLocationId( int locationId)
+        public WritableReviewBuilder withLocationId(int locationId)
         {
             this.locationId = locationId;
             return this;
         }
 
-        public WritableReviewBuilder withUserId( int userId)
+        public WritableReviewBuilder withUserId(int userId)
         {
             this.userId = userId;
             return this;
         }
 
-        public WritableReviewBuilder withRating( int rating)
+        public WritableReviewBuilder withRating(int rating)
         {
             this.rating = rating;
             return this;
