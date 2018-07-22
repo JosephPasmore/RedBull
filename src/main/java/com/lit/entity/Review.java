@@ -1,8 +1,11 @@
 package com.lit.entity;
 
+import java.util.*;
+
 public class Review
 {
     private final int reviewId;
+    private final List<Picture> pictures;
     private final int pictureId;
     private final int commentId;
     private final Location location;
@@ -15,6 +18,7 @@ public class Review
     private Review(ReviewBuilder builder)
     {
         this.reviewId = builder.reviewId;
+        this.pictures = builder.pictures;
         this.pictureId = builder.pictureId;
         this.commentId = builder.commentId;
         this.location = builder.location;
@@ -30,9 +34,9 @@ public class Review
         return reviewId;
     }
 
-    public int getPictureId()
+    public List<Picture> getPictures()
     {
-        return pictureId;
+        return pictures;
     }
 
     public int getCommentIdId() {
@@ -43,7 +47,7 @@ public class Review
         return location;
     }
 
-    public int getUserIdId() {
+    public int getUserId() {
         return userId;
     }
 
@@ -63,9 +67,18 @@ public class Review
         return uploadDateTime;
     }
 
+    public int getPictureId() {
+        return pictureId;
+    }
+
+    public int getCommentId() {
+        return commentId;
+    }
+
     public static class ReviewBuilder
     {
         private int reviewId;
+        private List<Picture> pictures;
         private int pictureId;
         private int commentId;
         private Location location;
@@ -75,8 +88,29 @@ public class Review
         private String description;
         private String uploadDateTime;
 
+        public ReviewBuilder copyFrom(Review review)
+        {
+            this.reviewId = review.reviewId;
+            this.pictures = review.pictures;
+            this.pictureId = review.pictureId;
+            this.commentId = review.commentId;
+            this.location = review.location;
+            this.userId = review.userId;
+            this.rating = review.rating;
+            this.availability = review.availability;
+            this.description = review.description;
+            this.uploadDateTime = review.uploadDateTime;
+
+            return this;
+        }
+
         public ReviewBuilder withReviewId(int reviewId){
             this.reviewId = reviewId;
+            return this;
+        }
+
+        public ReviewBuilder withPictures(List<Picture> pictures){
+            this.pictures = pictures;
             return this;
         }
 
