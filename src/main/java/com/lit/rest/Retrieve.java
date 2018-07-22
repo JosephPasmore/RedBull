@@ -42,7 +42,7 @@ public class Retrieve {
 
         RetrieveService service = new RetrieveService();
         try {
-            return Response.status(200).entity(service.getReviews()).build();
+            return Response.status(200).entity(service.getUser()).build();
         } catch (Exception e) {
             return Response.status(400).entity(e.getMessage()).build();
         }
