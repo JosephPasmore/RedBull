@@ -12,18 +12,13 @@ import java.util.*;
 
 public class RetrieveUsersPreparedStatement {
 
-    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_CONNECTION = "jdbc:mysql://localhost/napCore";
-    private static final String DB_USER = "user=root";
-    private static final String DB_PASSWORD = "password";
-
     public static List<User> selectRecordsFromTable() throws Exception {
 
         Connection dbConnection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<User> users = new ArrayList();
-        String selectSQL = "SELECT * FROM review, location WHERE review.reviewId = location.reviewId";
+        String selectSQL = "SELECT * FROM user";
 
         try
         {
@@ -69,8 +64,8 @@ public class RetrieveUsersPreparedStatement {
         Connection dbConnection = null;
         Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-        dbConnection = DriverManager.getConnection("jdbc:mysql://localhost/napCore?serverTimezone=UTC&"
-                + "user=root&password=password");
+        dbConnection = DriverManager.getConnection("jdbc:mysql://Josephs-MacBook-Air.local/napCore?serverTimezone=UTC&"
+                + "user=stephen&password=password");
         return dbConnection;
     }
 }

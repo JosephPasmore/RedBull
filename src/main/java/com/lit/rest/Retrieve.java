@@ -36,6 +36,7 @@ public class Retrieve {
         }
     }
 
+    @GET
     @Path("/users")
     @Produces(MediaType.APPLICATION_JSON)
     public Response retrieveUsers() {

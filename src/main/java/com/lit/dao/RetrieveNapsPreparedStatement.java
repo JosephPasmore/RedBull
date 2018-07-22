@@ -13,11 +13,6 @@ import java.util.*;
 
 public class RetrieveNapsPreparedStatement {
 
-    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_CONNECTION = "jdbc:mysql://localhost/napCore";
-    private static final String DB_USER = "user=root";
-    private static final String DB_PASSWORD = "password";
-
     public static List<Review> selectRecordsFromTable() throws Exception {
 
         Connection dbConnection = null;

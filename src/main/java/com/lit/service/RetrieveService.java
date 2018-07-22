@@ -7,8 +7,6 @@ import com.lit.entity.Location;
 import com.lit.entity.Review;
 import com.lit.entity.Picture;
 import com.lit.dao.RetrieveUsersPreparedStatement;
-
-import com.lit.entity.Review;
 import com.lit.entity.User;
 import java.util.*;
 
