@@ -1,6 +1,6 @@
 package com.lit.dao;
 
-import com.lit.Review;
+import com.lit.entity.WritableReview;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,9 +17,9 @@ public class AddReview {
      static final String USER = "root";
      static final String PASS = "1234";
 
-     Review review;
+    WritableReview review;
 
-     public AddReview(Review reviewToAdd)
+     public AddReview(WritableReview reviewToAdd)
      {
         review = reviewToAdd;
      }

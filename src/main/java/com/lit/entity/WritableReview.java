@@ -1,4 +1,4 @@
-package com.lit;
+package com.lit.entity;
 
 public class WritableReview
 {

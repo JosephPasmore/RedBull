@@ -7,8 +7,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.lit.Track;
-import com.lit.dao.AddReview;
-import com.lit.Review;
 
 @Path("/service")
 public class AddNapReview {
