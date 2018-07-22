@@ -7,18 +7,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.lit.Track;
+import com.lit.dao.AddReview;
+import com.lit.Review;
 
 @Path("/service")
-public class ConfessNap {
+public class AddNapReview {
 
     @POST
-    @Path("/confessNap")
+    @Path("/addNapReview")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response confessNap(Track track) {
-
+    public Response addNapReview(Track track) {
         String result = "Track saved : " + track;
         return Response.status(201).entity(result).build();
-
     }
-
 }
