@@ -1,6 +1,7 @@
-public class Review {
+package com.lit.entity;
 
-    // All are set to final to make Review Immutable
+public class Review
+{
     private final int reviewId;
     private final int pictureId;
     private final int commentId;
@@ -11,26 +12,26 @@ public class Review {
     private final String description;
     private final String uploadDateTime;
 
-    // Constructor is private, so that only static
-    // ReviewBuilder can initiate the Review class instance
-    private Review(ReviewBuilder builder) {
-        this.reviewId = builder.getReviewId();
-        this.pictureId = builder.getPictureId();
-        this.commentId = builder.getCommentId();
-        this.locationId = builder.getLocationId();
-        this.userId = builder.getUserId();
-        this.rating = builder.getRating();
-        this.availability = builder.getAvailability();
-        this.description = builder.getDescription();
-        this.uploadDateTime = builder.uploadDateTime();
+    private Review(ReviewBuilder builder)
+    {
+        this.reviewId = builder.reviewId;
+        this.pictureId = builder.pictureId;
+        this.commentId = builder.commentId;
+        this.locationId = builder.locationId;
+        this.userId = builder.userId;
+        this.rating = builder.rating;
+        this.availability = builder.availability;
+        this.description = builder.description;
+        this.uploadDateTime = builder.uploadDateTime;
     }
 
-    // getters
-    public int getReviewId() {
+    public int getReviewId()
+    {
         return reviewId;
     }
 
-    public int getPictureId() {
+    public int getPictureId()
+    {
         return pictureId;
     }
 
@@ -62,55 +63,63 @@ public class Review {
         return uploadDateTime;
     }
 
-    public static class ReviewBuilder() {
+    public static class ReviewBuilder
+    {
+        private int reviewId;
+        private int pictureId;
+        private int commentId;
+        private int locationId;
+        private int userId;
+        private int rating;
+        private String availability;
+        private String description;
+        private String uploadDateTime;
 
-        // Multiple Constructors for each member variable
-        public ReviewBuilder withReviewId ( int reviewId){
+        public ReviewBuilder withReviewId(int reviewId){
             this.reviewId = reviewId;
             return this;
         }
 
-        public ReviewBuilder withPictureId ( int pictureId){
+        public ReviewBuilder withPictureId(int pictureId){
             this.pictureId = pictureId;
             return this;
         }
 
-        public ReviewBuilder withCommentId ( int commentId){
+        public ReviewBuilder withCommentId(int commentId){
             this.commentId = commentId;
             return this;
         }
 
-        public ReviewBuilder withLocationId ( int locationId){
+        public ReviewBuilder withLocationId(int locationId){
             this.locationId = locationId;
             return this;
         }
 
-        public ReviewBuilder withUserId ( int userId){
+        public ReviewBuilder withUserId(int userId){
             this.userId = userId;
             return this;
         }
 
-        public ReviewBuilder withRating ( int rating){
+        public ReviewBuilder withRating(int rating){
             this.rating = rating;
             return this;
         }
 
-        public ReviewBuilder withAvailability (String availability){
+        public ReviewBuilder withAvailability(String availability){
             this.availability = availability;
             return this;
         }
 
-        public ReviewBuilder withDescription (String description){
+        public ReviewBuilder withDescription(String description){
             this.description = description;
             return this;
         }
 
-        public ReviewBuilder withUploadDateTime (String uploadDateTime){
+        public ReviewBuilder withUploadDateTime(String uploadDateTime){
             this.uploadDateTime = uploadDateTime;
             return this;
         }
 
-        // The only method to initiate Review class
         public Review build () {
             return new Review(this);
         }
