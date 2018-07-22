@@ -35,8 +35,8 @@ public class AddReview {
         Connection dbConnection = null;
         Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-        dbConnection = DriverManager.getConnection("jdbc:mysql://75.98.125.90/napCore?serverTimezone=UTC&"
-                + "user=root&password=password");
+        dbConnection = DriverManager.getConnection("jdbc:mysql://Josephs-MacBook-Air.local/napCore?serverTimezone=UTC&"
+                + "user=stephen&password=password");
         return dbConnection;
     }
 }
