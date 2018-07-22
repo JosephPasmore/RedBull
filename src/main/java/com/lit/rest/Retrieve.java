@@ -5,23 +5,32 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import com.lit.entity.Review;
-import com.lit.Track;
 import com.lit.service.RetrieveService;
-import java.sql.SQLException;
-import java.util.List;
 
-@Path("/retrieve")
+@Path("/retrieve/service")
 public class Retrieve {
 
 	@GET
-	@Path("/service/naps")
+	@Path("/naps")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response retrieveNaps() {
 
         RetrieveService service = new RetrieveService();
         try {
             return Response.status(200).entity(service.getReviews()).build();
+        } catch (Exception e) {
+            return Response.status(400).entity(e.getMessage()).build();
+        }
+    }
+
+    @GET
+    @Path("/locations")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response retrieveLocations() {
+
+        RetrieveService service = new RetrieveService();
+        try {
+            return Response.status(200).entity(service.getLocations()).build();
         } catch (Exception e) {
             return Response.status(400).entity(e.getMessage()).build();
         }

@@ -90,8 +90,8 @@ public class RetrieveNapsPreparedStatement {
         Connection dbConnection = null;
         Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-        dbConnection = DriverManager.getConnection("jdbc:mysql://localhost/napCore?serverTimezone=UTC&"
-                    + "user=root&password=password");
+        dbConnection = DriverManager.getConnection("jdbc:mysql://Josephs-MacBook-Air.local/napCore?serverTimezone=UTC&"
+                + "user=stephen&password=password");
         return dbConnection;
     }
 }
