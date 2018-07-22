@@ -1,5 +1,7 @@
-public class WritableReview {
+package com.lit.entity;
 
+public class WritableReview
+{
     // All are set to final to make writableReview Immutable
     private final int reviewId;
     private final int pictureId;
@@ -13,7 +15,8 @@ public class WritableReview {
 
     // Constructor is private, so that only static
     // writableReviewBuilder can initiate the writableReview class instance
-    private WritableReview(WritableReviewBuilder builder) {
+    private WritableReview(WritableReviewBuilder builder)
+    {
         this.reviewId = builder.getReviewId();
         this.pictureId = builder.getPictureId();
         this.commentId = builder.getCommentId();
@@ -26,92 +29,125 @@ public class WritableReview {
     }
 
     // getters
-    public int getReviewId() {
+    public int getReviewId()
+    {
         return reviewId;
     }
 
-    public int getPictureId() {
+    public int getPictureId()
+    {
         return pictureId;
     }
 
-    public int getCommentIdId() {
+    public int getCommentIdId()
+    {
         return commentId;
     }
 
-    public int getLocationId() {
+    public int getLocationId()
+    {
         return locationId;
     }
 
-    public int getUserIdId() {
+    public int getUserIdId()
+    {
         return userId;
     }
 
-    public int getRating() {
+    public int getRating()
+    {
         return rating;
     }
 
-    public String getAvailability() {
+    public String getAvailability()
+    {
         return availability;
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public String getUploadDateTime() {
+    public String getUploadDateTime()
+    {
         return uploadDateTime;
     }
 
-    public static class WritableReviewBuilder() {
+    public static class WritableReviewBuilder()
+    {
+        private int reviewId;
+        private int pictureId;
+        private int commentId;
+        private int locationId;
+        private int userId;
+        private int rating;
+        private String availability;
+        private String description;
+        private String uploadDateTime;
+
+        public WritableReviewBuilder()
+        {
+
+        }
 
         // Multiple Constructors for each member variable
-        public ReviewBuilder withReviewId ( int reviewId){
+        public WritableReviewBuilder withReviewId( int reviewId)
+        {
             this.reviewId = reviewId;
             return this;
         }
 
-        public ReviewBuilder withPictureId ( int pictureId){
+        public WritableReviewBuilder withPictureId( int pictureId)
+        {
             this.pictureId = pictureId;
             return this;
         }
 
-        public ReviewBuilder withCommentId ( int commentId){
+        public WritableReviewBuilder withCommentId( int commentId){
             this.commentId = commentId;
             return this;
         }
 
-        public ReviewBuilder withLocationId ( int locationId){
+        public WritableReviewBuilder withLocationId( int locationId)
+        {
             this.locationId = locationId;
             return this;
         }
 
-        public ReviewBuilder withUserId ( int userId){
+        public WritableReviewBuilder withUserId( int userId)
+        {
             this.userId = userId;
             return this;
         }
 
-        public ReviewBuilder withRating ( int rating){
+        public WritableReviewBuilder withRating( int rating)
+        {
             this.rating = rating;
             return this;
         }
 
-        public ReviewBuilder withAvailability (String availability){
+        public WritableReviewBuilder withAvailability(String availability)
+        {
             this.availability = availability;
             return this;
         }
 
-        public ReviewBuilder withDescription (String description){
+        public WritableReviewBuilder withDescription(String description)
+        {
             this.description = description;
             return this;
         }
 
-        public ReviewBuilder withUploadDateTime (String uploadDateTime){
+        public WritableReviewBuilder withUploadDateTime(String uploadDateTime)
+        {
             this.uploadDateTime = uploadDateTime;
             return this;
         }
 
         // The only method to initiate Review class
-        public WritableReview build () {
+        public WritableReview build()
+        {
             return new WritableReview(this);
         }
     }
