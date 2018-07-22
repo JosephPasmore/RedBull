@@ -1,6 +1,5 @@
 package com.lit.entity;
 
-<<<<<<< HEAD
 public class Location {
 
     private final int locationId;
