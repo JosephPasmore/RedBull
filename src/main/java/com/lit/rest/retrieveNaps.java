@@ -11,12 +11,12 @@ import javax.ws.rs.core.Response;
 import com.lit.Track;
 
 @Path("/service")
-public class retrieveNaps {
+public class RetrieveNaps {
 
 	@GET
 	@Path("/retrieveNaps")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Track getTrackInJSON() {
+	public Track retrieveNaps() {
 
 		Track track = new Track();
 		track.setTitle("Enter Sandman");
@@ -24,16 +24,6 @@ public class retrieveNaps {
 
 		return track;
 
-	}
-
-	@POST
-	@Path("/confessNap")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createTrackInJSON(Track track) {
-
-		String result = "Track saved : " + track;
-		return Response.status(201).entity(result).build();
-		
 	}
 	
 }
