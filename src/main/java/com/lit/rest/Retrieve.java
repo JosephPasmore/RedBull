@@ -11,11 +11,11 @@ import com.lit.service.RetrieveService;
 import java.sql.SQLException;
 import java.util.List;
 
-@Path("/read")
-public class RetrieveNaps {
+@Path("/retrieve")
+public class Retrieve {
 
 	@GET
-	@Path("/retrieveNaps")
+	@Path("/service/naps")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response retrieveNaps() {
 
